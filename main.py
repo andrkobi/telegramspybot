@@ -16,6 +16,10 @@ tg_password = "march032020"
 client = TelegramClient('spy_session', api_id, api_hash)
 message_memory = {}
 
+# Безопасное создание папки media_temp
+if os.path.exists("media_temp") and not os.path.isdir("media_temp"):
+    os.remove("media_temp")
+
 os.makedirs("media_temp", exist_ok=True)
 
 def update_stat(user_id, action):
